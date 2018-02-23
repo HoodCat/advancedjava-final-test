@@ -5,10 +5,18 @@ public class Person {
 	private int age;
 	private String name;
 	
+	public Person() {
+		this(12, "");
+	}
+	
 	public Person( String name ){
+		this(12, name);
 	}
 	
 	public Person(int age, String name){
+		this.age = age;
+		this.name = name;
+		numberOfPerson++;
 	}
 	
 	public int getAge() {
@@ -26,10 +34,14 @@ public class Person {
 	public void selfIntroduce(){
 		// "내 이름은 ...이며, 나이는 ...살입니다." 출력함
 		// 예) 내이름은 김철수이며, 나이는 19살 입니다.
+		System.out.println(
+				String.format("내 이름은 %s이며, 나이는 %d살 입니다.",
+							name, age));
 	}
 
 	static int getPopulation(){
 		// 전체 인구수를 return 함
+		return numberOfPerson;
 	}
 }
 
